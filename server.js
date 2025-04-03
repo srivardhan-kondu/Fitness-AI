@@ -3,17 +3,17 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// MongoDB Connection
+// MongoDB Local Connection
+const mongoURI = "mongodb://127.0.0.1:27017/getsetfit";  // Local DB
 mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB Connected"))
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB Connected Locally"))
   .catch((err) => console.log("Error connecting to MongoDB:", err));
 
 // Default Route
