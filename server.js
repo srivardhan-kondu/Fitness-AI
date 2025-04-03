@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const expenseRoutes = require("./routes/expense"); // Import expense routes
+app.use("/api/expenses", expenseRoutes); // Register expenses API
 
 dotenv.config();
 
